@@ -1,4 +1,4 @@
-package engah.springframework.sfengahpetclinic.model;
+package engah.springframework.model;
 
 import java.time.LocalDate;
 
@@ -7,11 +7,11 @@ public class Pet {
     private Owner owner;
     private LocalDate birthdate;
 
-    public engah.springframework.sfengahpetclinic.model.petType getPetType() {
+    public engah.springframework.model.petType getPetType() {
         return petType;
     }
 
-    public void setPetType(engah.springframework.sfengahpetclinic.model.petType petType) {
+    public void setPetType(engah.springframework.model.petType petType) {
         this.petType = petType;
     }
 

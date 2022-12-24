@@ -1,4 +1,4 @@
-package engah.springframework.sfengahpetclinic.model;
+package engah.springframework.model;
 
 public class Person {
     private String firstName;
