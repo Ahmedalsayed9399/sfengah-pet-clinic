@@ -61,6 +61,6 @@
     </build>
 <scm>
     <developerConnection>scm:git:https://github.com/Ahmedalsayed9399/sfengah-pet-clinic.git</developerConnection>
-  <tag>sfengah-pet-clinic-0.0.1</tag>
+
   </scm>
 </project>
