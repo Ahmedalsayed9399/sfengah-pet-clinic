@@ -1,6 +1,6 @@
 package engah.springframework.model;
 
-public class petType {
+public class petType extends BaseEntity {
     private String name;
 
     public String getName() {
