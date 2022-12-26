@@ -2,10 +2,11 @@ package engah.springframework.sevices.map;
 
 import engah.springframework.model.Pet;
 import engah.springframework.sevices.CrudService;
+import engah.springframework.sevices.PetService;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet,Long> implements CrudService<Pet,Long> {
+public class PetServiceMap extends AbstractMapService<Pet,Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();

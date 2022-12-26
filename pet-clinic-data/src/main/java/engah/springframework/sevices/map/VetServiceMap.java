@@ -2,10 +2,11 @@ package engah.springframework.sevices.map;
 
 import engah.springframework.model.Vet;
 import engah.springframework.sevices.CrudService;
+import engah.springframework.sevices.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet,Long> implements CrudService<Vet,Long> {
+public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService {
 
 
     @Override
