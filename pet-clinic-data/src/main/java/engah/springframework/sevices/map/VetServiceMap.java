@@ -3,9 +3,10 @@ package engah.springframework.sevices.map;
 import engah.springframework.model.Vet;
 import engah.springframework.sevices.CrudService;
 import engah.springframework.sevices.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService {
 
 
