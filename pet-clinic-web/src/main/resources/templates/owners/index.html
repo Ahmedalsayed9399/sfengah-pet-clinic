@@ -6,5 +6,26 @@
 </head>
 <body>
 <h1 th:text="'owner list'">owner list</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>LastName</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="owner : ${owners}">
+    <!--/*@thymesVar id="owner" type=""*/-->
+    <td th:text="${owner?.id}">1</td>
+
+    <!--/*@thymesVar id="firstName" type=""*/-->
+
+    <td th:text="${owner?.firstName}">EngAhmed</td>
+    <!--/*@thymesVar id="lastName" type=""*/-->
+    <td th:text="${owner?.lastName}">Elsayed</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
