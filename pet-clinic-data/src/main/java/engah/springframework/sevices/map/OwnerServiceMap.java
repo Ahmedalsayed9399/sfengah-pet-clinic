@@ -1,12 +1,22 @@
 package engah.springframework.sevices.map;
 
 import engah.springframework.model.Owner;
+import engah.springframework.model.Pet;
 import engah.springframework.sevices.OwnerService;
+import engah.springframework.sevices.PetService;
+import engah.springframework.sevices.PetTypeService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
+private final PetTypeService petTypeService;
+private final PetService petService;
+
+    public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
+        this.petTypeService = petTypeService;
+        this.petService = petService;
+    }
 
     @Override
     public Set<Owner> findAll() {
@@ -20,7 +30,28 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements O
 
     @Override
     public Owner save(Owner object) {
-        return super.save( object) ;
+        Owner savedowner=null;
+        if (object!=null){
+            if (object.getPets()!=null){
+                object.getPets().forEach(pet -> {
+                    if (pet.getPetType()!=null) {
+if (pet.getPetType().getId()==null) {
+    pet.setPetType(petTypeService.save(pet.getPetType()));
+}
+                    }else{
+                        throw new RuntimeException("pet type is required");
+                    }
+                    if (pet.getId()==null){
+                       Pet savedPet=petService.save(pet);
+                       pet.setId(savedPet.getId());
+                    }
+                });
+            }
+            return super.save( object) ;
+        }else {
+            return null;
+        }
+
     }
 
     @Override

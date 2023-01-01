@@ -3,6 +3,16 @@ package engah.springframework.model;
 import java.time.LocalDate;
 
 public class Pet extends BaseEntity {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private petType petType;
     private Owner owner;
     private LocalDate birthdate;
