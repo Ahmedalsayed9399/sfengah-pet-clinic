@@ -2,10 +2,13 @@ package engah.springframework.sevices.map;
 
 import engah.springframework.model.petType;
 import engah.springframework.sevices.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
+@Profile({"default","map"})
+
 public class PetTypeMapService extends AbstractMapService<petType,Long> implements PetTypeService {
     @Override
     public Set<petType> findAll() {
