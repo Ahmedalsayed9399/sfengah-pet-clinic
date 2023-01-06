@@ -2,15 +2,14 @@ package engah.springframework.sevices.map;
 
 import engah.springframework.model.Speciality;
 import engah.springframework.model.Vet;
-import engah.springframework.sevices.CrudService;
 import engah.springframework.sevices.SpecialityService;
 import engah.springframework.sevices.VetService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
-public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService {
-    public VetServiceMap(SpecialityService specialityService) {
+public class VetMapService extends AbstractMapService<Vet,Long> implements VetService {
+    public VetMapService(SpecialityService specialityService) {
         this.specialityService = specialityService;
     }
 
