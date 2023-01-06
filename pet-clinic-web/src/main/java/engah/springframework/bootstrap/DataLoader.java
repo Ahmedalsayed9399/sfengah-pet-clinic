@@ -1,10 +1,7 @@
 package engah.springframework.bootstrap;
 
 import engah.springframework.model.*;
-import engah.springframework.sevices.OwnerService;
-import engah.springframework.sevices.PetTypeService;
-import engah.springframework.sevices.SpecialityService;
-import engah.springframework.sevices.VetService;
+import engah.springframework.sevices.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -16,12 +13,14 @@ public class DataLoader implements CommandLineRunner {
   private  final VetService vetService;
   private final PetTypeService petTypeService;
   private final SpecialityService specialityService;
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+  private final VisitService visitService;
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
 
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -76,6 +75,11 @@ public class DataLoader implements CommandLineRunner {
         mohasCat.setName("Cat");
         owner2.getPets().add(mohasCat);
         ownerService.save(owner2);
+        Visit catVisit=new Visit();
+        catVisit.setPet(mohasCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("sneezy kitty");
+        visitService.save(catVisit);
         System.out.println("load owners is done!....");
         Vet vet1=new Vet();
         vet1.setFirstName("Sam");
