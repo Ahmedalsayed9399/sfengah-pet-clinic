@@ -1,8 +1,12 @@
 package engah.springframework.model;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
+@Entity
+@Table(name="pets")
 public class Pet extends BaseEntity {
+    @Column(name = "name")
     private String name;
 
     public String getName() {
@@ -12,9 +16,13 @@ public class Pet extends BaseEntity {
     public void setName(String name) {
         this.name = name;
     }
-
+@ManyToOne
+@JoinColumn(name = "type_id")
     private petType petType;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Owner owner;
+    @Column(name = "birth_date")
     private LocalDate birthdate;
 
     public engah.springframework.model.petType getPetType() {
