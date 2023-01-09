@@ -68,6 +68,9 @@ if (pet.getPetType().getId()==null) {
 
     @Override
     public Owner findByLastName(String lastname) {
-        return null;
+        return findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equals(lastname))
+                .findFirst().orElse(null);
     }
 }
